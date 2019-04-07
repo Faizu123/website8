@@ -1,6 +1,7 @@
-from flask import Flask
-app = Flask(__name__)
+from flask_frozen import Freezer
+from myapplication import app
 
-@app.route("/")
-def hello():
-    return "Hello World!"
+freezer = Freezer(app)
+
+if __name__ == '__main__':
+    freezer.freeze()
